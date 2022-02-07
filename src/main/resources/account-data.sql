@@ -1,0 +1,1 @@
+INSERT INTO `account`(`name`,`level`) VALUES ('Nam', 1700);

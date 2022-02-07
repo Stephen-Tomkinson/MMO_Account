@@ -3,5 +3,6 @@ CREATE TABLE account (
 	id BIGINT AUTO_INCREMENT,
 	name VARCHAR(255) NOT NULL,
 	level INT NOT NULL,
+	region CHAR(2) NOT NULL,
 	PRIMARY KEY (id)
 	);

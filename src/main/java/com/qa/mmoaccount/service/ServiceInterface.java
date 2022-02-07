@@ -4,18 +4,13 @@ import java.util.List;
 
 public interface ServiceInterface<T> {
 
-	// Create
-	T create(T t);
+	T create(T t); // Create
 
-	// Read [All - ID]
-	List<T> readAll(); // All
+	List<T> readAll(); // Read All
 
-	T readById(Long id);
+	T readById(Long id); // Read Id
 
-	// Update
-	T update(Long id, T t);
+	T update(Long id, T t); // Update
 
-	// Delete
-	T delete(Long id);
-
+	T delete(Long id); // Delete
 }

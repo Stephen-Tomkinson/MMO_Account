@@ -1,5 +1,13 @@
 package com.qa.mmoaccount.service;
 
-public class ServiceInterface {
+public interface ServiceInterface<T> {
+
+	// Create
+
+	// Read [All - ID]
+
+	// Update
+
+	// Delete
 
 }

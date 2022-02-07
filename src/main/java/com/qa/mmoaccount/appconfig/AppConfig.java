@@ -1,7 +1,8 @@
 package com.qa.mmoaccount.appconfig;
 
-public class AppConfig {
+import org.springframework.context.annotation.Configuration;
 
-	// Bean
+@Configuration
+public class AppConfig {
 
 }

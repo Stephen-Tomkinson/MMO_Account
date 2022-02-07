@@ -6,6 +6,4 @@ import com.qa.mmoaccount.domain.Account;
 
 public interface AccountRepo extends JpaRepository<Account, Long> {
 
-	// Retrieve from db
-
 }

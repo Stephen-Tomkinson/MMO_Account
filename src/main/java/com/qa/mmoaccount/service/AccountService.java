@@ -1,5 +1,18 @@
 package com.qa.mmoaccount.service;
 
-public class AccountService {
+import com.qa.mmoaccount.domain.Account;
 
+public class AccountService implements ServiceInterface<Account> {
+
+	// Repo
+
+	// Constructor
+
+	// Create
+
+	// Read [All - ID]
+
+	// Update
+
+	// Delete
 }

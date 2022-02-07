@@ -11,35 +11,30 @@ import com.qa.mmoaccount.repo.AccountRepo;
 @Service
 public class AccountService implements ServiceInterface<Account> {
 
-	// Repo
-	private AccountRepo accountRepo;
+	private AccountRepo accountRepo; // Repo
 
-	// Constructor
-	public AccountService(AccountRepo accountRepo) {
+	public AccountService(AccountRepo accountRepo) { // Constructor
 		this.accountRepo = accountRepo;
 	}
 
-	// Create
 	@Override
-	public Account create(Account account) {
+	public Account create(Account account) { // Create
 		return this.accountRepo.save(account);
 	}
 
-	// Read [All - ID]
 	@Override
-	public List<Account> readAll() { // All
+	public List<Account> readAll() { // Read All
 		return this.accountRepo.findAll();
 	}
 
 	@Override
-	public Account readById(Long id) { // Id
+	public Account readById(Long id) { // Read Id
 		Optional<Account> optionalAccount = this.accountRepo.findById(id);
 		return optionalAccount.get();
 	}
 
-	// Update
 	@Override
-	public Account update(Long id, Account account) {
+	public Account update(Long id, Account account) { // Update
 		Optional<Account> optionalAccount = this.accountRepo.findById(id);
 		Account existingAccount = optionalAccount.get();
 		existingAccount.setName(account.getName());
@@ -48,8 +43,7 @@ public class AccountService implements ServiceInterface<Account> {
 		return this.accountRepo.save(existingAccount);
 	}
 
-	// Delete
-	public Account delete(Long id) {
+	public Account delete(Long id) { // Delete
 		Optional<Account> toDelete = this.accountRepo.findById(id);
 		this.accountRepo.deleteById(id);
 		return toDelete.orElse(null);

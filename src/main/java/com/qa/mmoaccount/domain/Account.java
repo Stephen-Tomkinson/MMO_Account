@@ -16,87 +16,79 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "account")
 public class Account {
 
-	// PK - Id
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long id; // PK - Id
 
-	// Name
 	@Column
 	@NotBlank(message = "Please Enter a name")
-	private String name;
+	private String name; // Name
 
-	// Level
 	@Min(0)
 	@Max(3600)
 	@Column
-	private int level;
+	private int level; // Level
 
-	// Region
 	@Column
 	@NotBlank(message = "Please specify a server region")
-	private String region;
+	private String region; // Region
 
-	// Constructors[No Args, All Args[No ID], All Args
-	public Account() { // No Args
+	public Account() { // No Args Constructor
 
 	}
 
-	public Account(String name, int level, String region) { // All Args[No ID]
+	public Account(String name, int level, String region) { // All Args [No ID] Constructor
 		this.name = name;
 		this.level = level;
 		this.region = region;
 	}
 
-	public Account(Long id, String name, int level, String region) { // All Args
+	public Account(Long id, String name, int level, String region) { // All Args Constructor
 		this.id = id;
 		this.name = name;
 		this.level = level;
 		this.region = region;
 	}
 
-	// Getters & Setters
-	public Long getId() {
+	public Long getId() { // Getters & Setters
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Long id) { // Getters & Setters
 		this.id = id;
 	}
 
-	public String getName() {
+	public String getName() { // Getters & Setters
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name) { // Getters & Setters
 		this.name = name;
 	}
 
-	public int getLevel() {
+	public int getLevel() { // Getters & Setters
 		return level;
 	}
 
-	public void setLevel(int level) {
+	public void setLevel(int level) { // Getters & Setters
 		this.level = level;
 	}
 
-	public String getRegion() {
+	public String getRegion() { // Getters & Setters
 		return region;
 	}
 
-	public void setRegion(String region) {
+	public void setRegion(String region) { // Getters & Setters
 		this.region = region;
 	}
 
-	// HashCode
 	@Override
-	public int hashCode() {
+	public int hashCode() { // HashCode
 		return Objects.hash(level, name, region);
 	}
 
-	// Equals
 	@Override
-	public boolean equals(Object obj) {
+	public boolean equals(Object obj) { // Equals
 		if (this == obj)
 			return true;
 		if (obj == null)
@@ -107,9 +99,8 @@ public class Account {
 		return level == other.level && Objects.equals(name, other.name) && Objects.equals(region, other.region);
 	}
 
-	// ToString
 	@Override
-	public String toString() {
+	public String toString() { // ToString
 		return "Account [id=" + id + ", name=" + name + ", level=" + level + ", region=" + region + "]";
 	}
 }

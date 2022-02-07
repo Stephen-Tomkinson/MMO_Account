@@ -22,42 +22,35 @@ import com.qa.mmoaccount.service.ServiceInterface;
 @RequestMapping("/account")
 public class AccountController {
 
-	// Service
-	private ServiceInterface<Account> service;
+	private ServiceInterface<Account> service; // Service
 
-	// Controller
-	public AccountController(ServiceInterface service) {
+	public AccountController(ServiceInterface service) { // Controller
 		this.service = service;
 	}
 
-	// Create
 	@PostMapping("/create")
-	public ResponseEntity<Account> createAccount(@RequestBody Account account) {
+	public ResponseEntity<Account> createAccount(@RequestBody Account account) { // Create
 		return new ResponseEntity<Account>(this.service.create(account), HttpStatus.CREATED);
 	}
 
-	// Read [All - ID]
 	@GetMapping("/getAll")
-	public ResponseEntity<List<Account>> readAllAccount() { // All
+	public ResponseEntity<List<Account>> readAllAccount() { // Read All
 		return new ResponseEntity<List<Account>>(this.service.readAll(), HttpStatus.FOUND);
 	}
 
 	@GetMapping("/getById/{id}")
-	public ResponseEntity<Account> readByIdAccount(@PathVariable Long id) { // Id
+	public ResponseEntity<Account> readByIdAccount(@PathVariable Long id) { // Read Id
 		return new ResponseEntity<Account>(this.service.readById(id), HttpStatus.FOUND);
 	}
 
-	// Update
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Account> updateAccount(@PathVariable Long id, @RequestBody Account account) {
+	public ResponseEntity<Account> updateAccount(@PathVariable Long id, @RequestBody Account account) { // Update
 		return new ResponseEntity<Account>(this.service.update(id, account), HttpStatus.ACCEPTED);
 	}
 
-	// Delete
 	@Transactional
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Account> deleteAccount(@RequestBody Long id) {
+	public ResponseEntity<Account> deleteAccount(@RequestBody Long id) { // Delete
 		return new ResponseEntity<Account>(this.service.delete(id), HttpStatus.OK);
 	}
-
 }

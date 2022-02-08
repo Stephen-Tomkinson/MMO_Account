@@ -1,1 +1,1 @@
-INSERT INTO `account`(`name`,`level`) VALUES ('Nam', 1700);
+INSERT INTO `account`(`name`,`level`,`region`) VALUES ('Nam', 1700, 'EU');

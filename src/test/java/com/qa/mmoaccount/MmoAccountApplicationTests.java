@@ -10,4 +10,8 @@ class MmoAccountApplicationTests {
 	void contextLoads() {
 	}
 
+	@Test
+	void fullCoverage() {
+		MmoAccountApplication.main(new String[] {});
+	}
 }

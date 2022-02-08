@@ -41,31 +41,24 @@ public class AccountControllerIntegrationtest {
 	void testCreateCont() throws Exception {
 		// ----request
 		Account newAcc = new Account("Schaf", 1300, "EU"); // Create Account
-		String newAJSON = this.map.writeValueAsString(newAcc); // Convert into JSON
-		RequestBuilder mockRequest = post("/account/create").contentType(MediaType.APPLICATION_JSON).content(newAJSON);
+		String newAccJSON = this.map.writeValueAsString(newAcc); // Convert into JSON
+		RequestBuilder mockRequest = post("/account/create").contentType(MediaType.APPLICATION_JSON)
+				.content(newAccJSON);
 		// ^^ build the mock request ^^ // --response
-		Account savedA = new Account(2L, "Schaf", 1300, "EU"); // alredy inserted one record on line 1
-		String savedAJSON = this.map.writeValueAsString(savedA); // convert to JSON
+		Account savedAcc = new Account(2L, "Schaf", 1300, "EU"); // already inserted one record on line 1
+		String savedAJSON = this.map.writeValueAsString(savedAcc); // convert to JSON
 		// --test response
 		ResultMatcher matchStatus = status().isCreated(); // test status = 201-CREATED
 		ResultMatcher matchBody = content().json(savedAJSON); // test result body
 		this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody); // perform the test
+		// this.mock.perform(post("/account/create").contentType(MediaType.APPLICATION_JSON).content(this.map.writeValueAsString(new
+		// Account("Schaf", 1300,
+		// "EU")))).andExpect(status().isCreated()).andExpect(content().json(this.map.writeValueAsString(new
+		// Account(2L, "Schaf", 1300, "EU"))));
 	}
 
 	@Test
 	void readAllTest() throws Exception {
-		Account readAcc = new Account(1L, "Nam", 1700, "EU");
-		String readAccJSON = this.map.writeValueAsString(readAcc);
-		Long IDread = 1L;
-		RequestBuilder readReq = get("/account/getById/" + IDread).contentType(MediaType.APPLICATION_JSON)
-				.content(readAccJSON);
-		ResultMatcher status = status().isFound();
-		ResultMatcher body = content().json(readAccJSON);
-		this.mock.perform(readReq).andExpect(status).andExpect(body);
-	}
-
-	@Test
-	void ReadByIdTest() throws Exception {
 		Account readAcc = new Account(1L, "Nam", 1700, "EU");
 		List<Account> allAcc = List.of(readAcc);
 		String readAccJSON = this.map.writeValueAsString(allAcc);
@@ -73,6 +66,22 @@ public class AccountControllerIntegrationtest {
 		ResultMatcher status = status().isFound();
 		ResultMatcher body = content().json(readAccJSON);
 		this.mock.perform(readReq).andExpect(status).andExpect(body);
+		// this.mock.perform(get("/account/getAll")).andExpect(status().isFound()).andExpect(content().json(this.map.writeValueAsString(List.of(new
+		// Account(1L, "Nam", 1700, "EU")))));
+	}
+
+	@Test
+	void ReadByIdTest() throws Exception {
+		Account readAcc = new Account(1L, "Nam", 1700, "EU");
+		String readAccJSON = this.map.writeValueAsString(readAcc);
+		Long IDread = 1L;
+		RequestBuilder readReq = get("/account/getById/" + IDread);
+		ResultMatcher status = status().isFound();
+		ResultMatcher body = content().json(readAccJSON);
+		this.mock.perform(readReq).andExpect(status).andExpect(body);
+		// this.mock.perform(get("/account/getById/" +
+		// 1L)).andExpect(status().isFound()).andExpect(content().json(this.map.writeValueAsString(new
+		// Account(1L, "Nam", 1700, "EU"))));
 	}
 
 	@Test
@@ -87,6 +96,11 @@ public class AccountControllerIntegrationtest {
 		ResultMatcher retStatus = status().isAccepted();
 		ResultMatcher retBody = content().json(retUpdatedAccJSON);
 		this.mock.perform(updateReq).andExpect(retStatus).andExpect(retBody);
+		// this.mock.perform(put("/account/update/" +
+		// 1L).contentType(MediaType.APPLICATION_JSON).content(this.map.writeValueAsString(new
+		// Account("Tabby", 1100,
+		// "EU")))).andExpect(status().isAccepted()).andExpect(content().json(this.map.writeValueAsString(new
+		// Account(1L, "Tabby", 1100, "EU"))));
 	}
 
 	@Test
@@ -98,5 +112,8 @@ public class AccountControllerIntegrationtest {
 		ResultMatcher Status = status().isOk();
 		ResultMatcher Body = content().json(deleteAccJSON);
 		this.mock.perform(delRequest).andExpect(Status).andExpect(Body);
+		// this.mock.perform(delete("/account/delete/" +
+		// 1L)).andExpect(status().isOk()).andExpect(content().json(this.map.writeValueAsString(new
+		// Account(1L, "Nam", 1700, "EU"))));
 	}
 }

@@ -50,7 +50,7 @@ public class AccountController {
 
 	@Transactional
 	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<Account> deleteAccount(@RequestBody Long id) { // Delete
+	public ResponseEntity<Account> deleteAccount(@PathVariable Long id) { // Delete
 		return new ResponseEntity<Account>(this.service.delete(id), HttpStatus.OK);
 	}
 }

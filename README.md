@@ -19,7 +19,11 @@ If I am to continue development on this project, I may use a UUID implementation
 ### Installation
 
 If you wish to try the program for yourself, simply download the .jar file in the root of the project.
-For this you will need a local java installation on your machine.
+To run this file you will need a local java installation on your machine.
+You may need to run it through command prompt using the following command:
+```
+java -jar MMO_Account-0.0.1-SNAPSHOT.jar
+```
 Please reference: https://java.com/en/download/
 
 ### Modification
@@ -37,6 +41,7 @@ Due to collaboration on a previous project, I had accidentally made my project b
 I have made a new one since recognising this mistake, but the timings will naturally not be accurate.
 https://amarakhtar.atlassian.net/jira/software/projects/MMOA/boards/6/roadmap
 https://stephentomkinson.atlassian.net/jira/software/projects/MMOA/boards/3/roadmap
+
 Top has realistic timing as I worked through my project.
 The bottom one however, is on my own area and has accurate linking of tasks.
 
@@ -121,7 +126,7 @@ Update Test from Controller Integration Test
 
 ![image](https://user-images.githubusercontent.com/95347199/153437420-a46abc05-a501-4919-aae7-319a51aa1169.png)
 
-## Api Requests
+## API Requests
 
 ### Create
 

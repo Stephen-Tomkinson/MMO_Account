@@ -37,10 +37,10 @@ Please note: You may need to change between "test" and "prod" in application.pro
 
 Due to collaboration on a previous project, I had accidentally made my project board under a colleague's jira domain.
 I have made a new one since recognising this mistake, but the timings will naturally not be accurate.
-https://amarakhtar.atlassian.net/jira/software/projects/MMOA/boards/6
-https://stephentomkinson.atlassian.net/jira/software/projects/MMOA/boards/3
-To see the board with more accurate timing please see the top one.
-The botom one however is my own.
+https://amarakhtar.atlassian.net/jira/software/projects/MMOA/boards/6/roadmap
+https://stephentomkinson.atlassian.net/jira/software/projects/MMOA/boards/3/roadmap
+Top has realistic timing as I worked through my project.
+The bottom one however, is on my own area and has accurate linking of tasks.
 
 ### Entity Relationship Diagram
 

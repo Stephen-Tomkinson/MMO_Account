@@ -14,9 +14,7 @@ The whole coding section went pretty smoothly in my opinion. I had one minor hic
 If I am to continue development on this project, I may use a UUID implementation for the ID instead of a Long, and multiple databases with DTO's.
 
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+## Downloads
 
 ### Installation
 

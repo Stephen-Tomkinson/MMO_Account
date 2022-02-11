@@ -38,7 +38,7 @@ public class AccountControllerIntegrationtest {
 	private ObjectMapper map; // Interprets JSON
 
 	@Test
-	void testCreateCont() throws Exception {
+	void createTest() throws Exception {
 		// ----request
 		Account newAcc = new Account("Schaf", 1300, "EU"); // Create Account
 		String newAccJSON = this.map.writeValueAsString(newAcc); // Convert into JSON
@@ -74,8 +74,8 @@ public class AccountControllerIntegrationtest {
 	void ReadByIdTest() throws Exception {
 		Account readAcc = new Account(1L, "Nam", 1700, "EU");
 		String readAccJSON = this.map.writeValueAsString(readAcc);
-		Long IDread = 1L;
-		RequestBuilder readReq = get("/account/getById/" + IDread);
+		Long idRead = 1L;
+		RequestBuilder readReq = get("/account/getById/" + idRead);
 		ResultMatcher status = status().isFound();
 		ResultMatcher body = content().json(readAccJSON);
 		this.mock.perform(readReq).andExpect(status).andExpect(body);
@@ -88,8 +88,8 @@ public class AccountControllerIntegrationtest {
 	void updateTest() throws Exception {
 		Account updateAcc = new Account("Tabby", 1100, "EU");
 		String updateAccJSON = this.map.writeValueAsString(updateAcc);
-		Long IDupdate = 1L;
-		RequestBuilder updateReq = put("/account/update/" + IDupdate).contentType(MediaType.APPLICATION_JSON)
+		Long idUpdate = 1L;
+		RequestBuilder updateReq = put("/account/update/" + idUpdate).contentType(MediaType.APPLICATION_JSON)
 				.content(updateAccJSON);
 		Account retUpdatedAcc = new Account(1L, "Tabby", 1100, "EU");
 		String retUpdatedAccJSON = this.map.writeValueAsString(retUpdatedAcc);
